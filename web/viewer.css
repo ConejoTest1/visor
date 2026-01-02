@@ -8428,3 +8428,35 @@ dialog :link{
     display:none;
   }
 }
+/* ====== FIX DEFINITIVO PDF.JS EMBEBIDO ====== */
+
+/* Ocultar SOLO la barra, no el layout */
+#toolbarContainer {
+  display: none !important;
+}
+
+/* Forzar tamaño correcto del visor */
+#outerContainer,
+#mainContainer,
+#viewerContainer {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  height: auto !important;
+}
+
+/* Asegurar que el PDF se renderice */
+#viewer {
+  height: auto !important;
+  min-height: 100% !important;
+}
+
+/* Quitar overlays molestos */
+#loadingBar,
+#viewsManagerStatus,
+#editorUndoBar,
+.messageBar {
+  display: none !important;
+}
