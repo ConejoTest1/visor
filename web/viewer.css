@@ -8428,3 +8428,16 @@ dialog :link{
     display:none;
   }
 }
+/* Ocultar barras superiores de PDF.js */
+#toolbarContainer,
+#secondaryToolbar,
+#toolbarViewer,
+#sidebarContainer {
+  display: none !important;
+}
+
+/* Ajustar el visor para ocupar toda la pantalla */
+#viewerContainer {
+  top: 0 !important;
+  inset: 0 !important;
+}
