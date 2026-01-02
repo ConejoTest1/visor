@@ -35,6 +35,33 @@ See https://github.com/adobe-type-tools/cmap-resources
   // PDF.js lee esta variable GLOBAL al arrancar
   window.DEFAULT_URL = "/certificado/D038CDCDF3DD/D038CDCDF3DD.pdf";
 </script>
+<script>
+document.addEventListener("webviewerloaded", function () {
+  const app = window.PDFViewerApplication;
+
+  if (!app) return;
+
+  // Desactivar abrir archivo
+  app.appConfig.openFile.hidden = true;
+
+  // Desactivar botones principales
+  const toHide = [
+    app.appConfig.toolbar?.openFile,
+    app.appConfig.toolbar?.print,
+    app.appConfig.toolbar?.download,
+    app.appConfig.toolbar?.zoomIn,
+    app.appConfig.toolbar?.zoomOut,
+    app.appConfig.toolbar?.scaleSelectContainer,
+    app.appConfig.toolbar?.numPages,
+    app.appConfig.toolbar?.pageNumber
+  ];
+
+  toHide.forEach(el => el && (el.hidden = true));
+
+  // Ajustar visor a pantalla completa
+  document.getElementById("viewerContainer").style.top = "0";
+});
+</script>
 
 <link rel="stylesheet" href="viewer.css" />
 <script src="viewer.mjs" type="module"></script>
